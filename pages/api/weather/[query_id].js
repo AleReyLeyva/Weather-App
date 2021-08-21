@@ -1,7 +1,9 @@
 /* eslint-disable camelcase */
 import API from '../../../API';
+import cors from '../../../services/cors';
 
 export default async (req, res) => {
+  await cors(req, res);
   const { query_id } = req.query;
 
   const { data } = await API.get(`/${query_id}`);

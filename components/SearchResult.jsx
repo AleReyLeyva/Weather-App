@@ -12,6 +12,7 @@ export default function SearchResult({ result }) {
   const { city, id } = result;
 
   const handleClick = () => {
+    localStorage.setItem('lastSearch', id);
     axios.get(`/api/weather/${id}`).then(({ data: weather }) => {
       setWeather(weather);
       router.replace('/');
